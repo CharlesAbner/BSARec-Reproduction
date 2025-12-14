@@ -1,0 +1,604 @@
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 11:29:22 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 14:12:15 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 14:17:32 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 15:09:57 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 15:19:26 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 15:25:49 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=8.7299 [4.8 s]	dev=(HR@5:0.0879,NDCG@5:0.0469) [0.2 s] *
+INFO:root:Epoch 2     loss=8.3046 [3.7 s]	dev=(HR@5:0.0538,NDCG@5:0.0279) [0.2 s]
+INFO:root:Epoch 3     loss=8.0785 [3.6 s]	dev=(HR@5:0.1022,NDCG@5:0.0473) [0.2 s] *
+INFO:root:Epoch 4     loss=7.9075 [3.7 s]	dev=(HR@5:0.1059,NDCG@5:0.0480) [0.2 s] *
+INFO:root:Epoch 5     loss=7.7477 [3.7 s]	dev=(HR@5:0.0769,NDCG@5:0.0346) [0.2 s]
+INFO:root:Epoch 6     loss=7.5867 [3.7 s]	dev=(HR@5:0.0606,NDCG@5:0.0295) [0.2 s]
+INFO:root:Epoch 7     loss=7.4331 [3.6 s]	dev=(HR@5:0.0497,NDCG@5:0.0247) [0.2 s]
+INFO:root:Epoch 8     loss=7.2892 [3.7 s]	dev=(HR@5:0.0371,NDCG@5:0.0176) [0.2 s]
+INFO:root:Epoch 9     loss=7.1592 [3.6 s]	dev=(HR@5:0.0357,NDCG@5:0.0169) [0.2 s]
+INFO:root:Epoch 10    loss=7.0452 [3.6 s]	dev=(HR@5:0.0254,NDCG@5:0.0115) [0.2 s]
+INFO:root:Epoch 11    loss=6.9447 [3.6 s]	dev=(HR@5:0.0240,NDCG@5:0.0111) [0.2 s]
+INFO:root:Epoch 12    loss=6.8536 [3.7 s]	dev=(HR@5:0.0207,NDCG@5:0.0096) [0.2 s]
+INFO:root:Epoch 13    loss=6.7698 [3.7 s]	dev=(HR@5:0.0146,NDCG@5:0.0071) [0.2 s]
+INFO:root:Early stop at 13 based on dev result.
+INFO:root:
+Best Iter(dev)=    4	 dev=(HR@5:0.1059,NDCG@5:0.0480) [51.5 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__Grocery_and_Gourmet_Food__0__lr=0.0001__l2=1e-06__emb_size=64__num_layers=1__num_heads=4__alpha=0.5__c=5.pt
+INFO:root:
+Dev  After Training: (HR@5:0.1059,NDCG@5:0.0480,HR@10:0.1612,NDCG@10:0.0661,HR@20:0.2404,NDCG@20:0.0857,HR@50:0.9416,NDCG@50:0.2217)
+INFO:root:
+Test After Training: (HR@5:0.1085,NDCG@5:0.0496,HR@10:0.1685,NDCG@10:0.0692,HR@20:0.2564,NDCG@20:0.0910,HR@50:0.9413,NDCG@50:0.2240)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec\BSARec__Grocery_and_Gourmet_Food__0__lr=0\rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec\BSARec__Grocery_and_Gourmet_Food__0__lr=0\rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-11-02 15:26:46 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 16:11:19 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 16:20:33 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-02 16:23:18 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.5                 
+ batch_size         | 256                 
+ c                  | 5                   
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0001              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 1                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from ..\data\Grocery_and_Gourmet_Food\SeqReader.pkl
+INFO:root:#params: 605056
+INFO:root:BSARec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0): BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MultiHeadAttention(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+        )
+      )
+      (LayerNorm1): LayerNorm()
+      (dropout1): Dropout(p=0, inplace=False)
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0468,NDCG@5:0.0219,HR@10:0.1911,NDCG@10:0.0675,HR@20:0.5521,NDCG@20:0.1577,HR@50:0.9944,NDCG@50:0.2480)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=8.7299 [4.5 s]	dev=(HR@5:0.0879,NDCG@5:0.0469) [0.2 s] *
+INFO:root:Epoch 2     loss=8.3046 [3.8 s]	dev=(HR@5:0.0538,NDCG@5:0.0279) [0.2 s]
+INFO:root:Epoch 3     loss=8.0785 [7.0 s]	dev=(HR@5:0.1022,NDCG@5:0.0473) [0.6 s] *
+INFO:root:Epoch 4     loss=7.9075 [8.9 s]	dev=(HR@5:0.1059,NDCG@5:0.0480) [0.6 s] *
+INFO:root:Epoch 5     loss=7.7477 [8.9 s]	dev=(HR@5:0.0769,NDCG@5:0.0346) [0.6 s]
+INFO:root:Epoch 6     loss=7.5867 [8.8 s]	dev=(HR@5:0.0606,NDCG@5:0.0295) [0.5 s]
+INFO:root:Epoch 7     loss=7.4331 [8.5 s]	dev=(HR@5:0.0497,NDCG@5:0.0247) [0.5 s]
+INFO:root:Epoch 8     loss=7.2892 [8.4 s]	dev=(HR@5:0.0371,NDCG@5:0.0176) [0.5 s]
+INFO:root:Epoch 9     loss=7.1592 [8.6 s]	dev=(HR@5:0.0357,NDCG@5:0.0169) [0.5 s]
+INFO:root:Epoch 10    loss=7.0452 [8.3 s]	dev=(HR@5:0.0254,NDCG@5:0.0115) [0.5 s]
+INFO:root:Epoch 11    loss=6.9447 [8.4 s]	dev=(HR@5:0.0240,NDCG@5:0.0111) [0.5 s]
+INFO:root:Epoch 12    loss=6.8536 [8.7 s]	dev=(HR@5:0.0207,NDCG@5:0.0096) [0.5 s]
+INFO:root:Epoch 13    loss=6.7698 [8.5 s]	dev=(HR@5:0.0146,NDCG@5:0.0071) [0.5 s]
+INFO:root:Early stop at 13 based on dev result.
+INFO:root:
+Best Iter(dev)=    4	 dev=(HR@5:0.1059,NDCG@5:0.0480) [107.5 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__Grocery_and_Gourmet_Food__0__lr=0.0001__l2=1e-06__emb_size=64__num_layers=1__num_heads=4__alpha=0.5__c=5.pt
+INFO:root:
+Dev  After Training: (HR@5:0.1059,NDCG@5:0.0480,HR@10:0.1612,NDCG@10:0.0661,HR@20:0.2404,NDCG@20:0.0857,HR@50:0.9416,NDCG@50:0.2217)
+INFO:root:
+Test After Training: (HR@5:0.1085,NDCG@5:0.0496,HR@10:0.1685,NDCG@10:0.0692,HR@20:0.2564,NDCG@20:0.0910,HR@50:0.9413,NDCG@50:0.2240)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec\BSARec__Grocery_and_Gourmet_Food__0__lr=0\rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec\BSARec__Grocery_and_Gourmet_Food__0__lr=0\rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-11-02 16:25:13 ---------------------------------------------
