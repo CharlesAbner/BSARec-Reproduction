@@ -1,0 +1,184 @@
+INFO:root:Namespace(model_name='SASRec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-26 16:55:34 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 256                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 1                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/Grocery_and_Gourmet_Food/SeqReader.pkl
+INFO:root:#params: 601152
+INFO:root:SASRec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x TransformerLayer(
+      (masked_attn_head): MultiHeadAttention(
+        (q_linear): Linear(in_features=64, out_features=64, bias=True)
+        (k_linear): Linear(in_features=64, out_features=64, bias=True)
+        (v_linear): Linear(in_features=64, out_features=64, bias=True)
+      )
+      (layer_norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0, inplace=False)
+      (linear1): Linear(in_features=64, out_features=64, bias=True)
+      (linear2): Linear(in_features=64, out_features=64, bias=True)
+      (layer_norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0484,NDCG@5:0.0290,HR@10:0.0967,NDCG@10:0.0444,HR@20:0.1965,NDCG@20:0.0694,HR@50:0.4919,NDCG@50:0.1270)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.5045 [7.1 s]	dev=(HR@5:0.2971,NDCG@5:0.2011) [0.5 s] *
+INFO:root:Epoch 2     loss=0.3926 [7.0 s]	dev=(HR@5:0.3475,NDCG@5:0.2358) [0.5 s] *
+INFO:root:Epoch 3     loss=0.3275 [7.0 s]	dev=(HR@5:0.3782,NDCG@5:0.2610) [0.5 s] *
+INFO:root:Epoch 4     loss=0.2659 [6.7 s]	dev=(HR@5:0.4019,NDCG@5:0.2862) [0.5 s] *
+INFO:root:Epoch 5     loss=0.2125 [7.6 s]	dev=(HR@5:0.4156,NDCG@5:0.3002) [0.5 s] *
+INFO:root:Epoch 6     loss=0.1697 [6.4 s]	dev=(HR@5:0.4257,NDCG@5:0.3126) [0.4 s] *
+INFO:root:Epoch 7     loss=0.1397 [7.1 s]	dev=(HR@5:0.4268,NDCG@5:0.3163) [0.6 s] *
+INFO:root:Epoch 8     loss=0.1145 [6.7 s]	dev=(HR@5:0.4314,NDCG@5:0.3217) [0.5 s] *
+INFO:root:Epoch 9     loss=0.0959 [6.6 s]	dev=(HR@5:0.4340,NDCG@5:0.3274) [0.5 s] *
+INFO:root:Epoch 10    loss=0.0827 [7.6 s]	dev=(HR@5:0.4267,NDCG@5:0.3222) [0.4 s]
+INFO:root:Epoch 11    loss=0.0708 [6.7 s]	dev=(HR@5:0.4272,NDCG@5:0.3242) [0.5 s]
+INFO:root:Epoch 12    loss=0.0616 [5.2 s]	dev=(HR@5:0.4286,NDCG@5:0.3274) [0.4 s]
+INFO:root:Epoch 13    loss=0.0558 [7.5 s]	dev=(HR@5:0.4236,NDCG@5:0.3248) [0.5 s]
+INFO:root:Epoch 14    loss=0.0503 [6.7 s]	dev=(HR@5:0.4237,NDCG@5:0.3262) [0.4 s]
+INFO:root:Epoch 15    loss=0.0471 [7.5 s]	dev=(HR@5:0.4220,NDCG@5:0.3232) [0.5 s]
+INFO:root:Epoch 16    loss=0.0424 [6.9 s]	dev=(HR@5:0.4171,NDCG@5:0.3198) [0.5 s]
+INFO:root:Epoch 17    loss=0.0397 [6.0 s]	dev=(HR@5:0.4160,NDCG@5:0.3211) [0.5 s]
+INFO:root:Epoch 18    loss=0.0377 [6.2 s]	dev=(HR@5:0.4130,NDCG@5:0.3170) [0.4 s]
+INFO:root:Early stop at 18 based on dev result.
+INFO:root:
+Best Iter(dev)=    9	 dev=(HR@5:0.4340,NDCG@5:0.3274) [131.3 s] 
+INFO:root:Load model from ../model/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=1.pt
+INFO:root:
+Dev  After Training: (HR@5:0.4340,NDCG@5:0.3274,HR@10:0.5287,NDCG@10:0.3581,HR@20:0.6348,NDCG@20:0.3848,HR@50:0.8156,NDCG@50:0.4205)
+INFO:root:
+Test After Training: (HR@5:0.3849,NDCG@5:0.2807,HR@10:0.4825,NDCG@10:0.3123,HR@20:0.5926,NDCG@20:0.3400,HR@50:0.7922,NDCG@50:0.3794)
+INFO:root:Saving top-100 recommendation results to: ../log/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0/rec-SASRec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0/rec-SASRec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-11-26 16:57:54 ---------------------------------------------
+INFO:root:Namespace(model_name='SASRec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 20:45:51 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 256                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 1                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/Grocery_and_Gourmet_Food/SeqReader.pkl
+INFO:root:#params: 603072
+INFO:root:SASRec(
+  (i_embeddings): Embedding(8714, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x TransformerLayer(
+      (masked_attn_head): MultiHeadAttention(
+        (q_linear): Linear(in_features=64, out_features=64, bias=True)
+        (k_linear): Linear(in_features=64, out_features=64, bias=True)
+        (v_linear): Linear(in_features=64, out_features=64, bias=True)
+      )
+      (layer_norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0, inplace=False)
+      (linear1): Linear(in_features=64, out_features=64, bias=True)
+      (linear2): Linear(in_features=64, out_features=64, bias=True)
+      (layer_norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0009,NDCG@5:0.0005,HR@10:0.0015,NDCG@10:0.0007,HR@20:0.0025,NDCG@20:0.0009,HR@50:0.0063,NDCG@50:0.0017)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.5054 [6.9 s]	dev=(HR@5:0.0167,NDCG@5:0.0098) [2.4 s] *
+INFO:root:Epoch 2     loss=0.3906 [7.3 s]	dev=(HR@5:0.0166,NDCG@5:0.0101) [2.7 s] *
+INFO:root:Epoch 3     loss=0.3249 [6.2 s]	dev=(HR@5:0.0227,NDCG@5:0.0144) [2.5 s] *
+INFO:root:Epoch 4     loss=0.2635 [7.5 s]	dev=(HR@5:0.0310,NDCG@5:0.0196) [3.1 s] *
+INFO:root:Epoch 5     loss=0.2110 [8.4 s]	dev=(HR@5:0.0369,NDCG@5:0.0233) [2.4 s] *
+INFO:root:Epoch 6     loss=0.1689 [6.9 s]	dev=(HR@5:0.0377,NDCG@5:0.0238) [3.1 s] *
+INFO:root:Epoch 7     loss=0.1380 [7.7 s]	dev=(HR@5:0.0416,NDCG@5:0.0268) [2.9 s] *
+INFO:root:Epoch 8     loss=0.1140 [6.8 s]	dev=(HR@5:0.0458,NDCG@5:0.0300) [2.8 s] *
+INFO:root:Epoch 9     loss=0.0937 [7.6 s]	dev=(HR@5:0.0479,NDCG@5:0.0312) [3.0 s] *
+INFO:root:Epoch 10    loss=0.0820 [6.8 s]	dev=(HR@5:0.0498,NDCG@5:0.0322) [2.7 s] *
+INFO:root:Epoch 11    loss=0.0700 [7.1 s]	dev=(HR@5:0.0510,NDCG@5:0.0333) [3.1 s] *
+INFO:root:Epoch 12    loss=0.0607 [7.6 s]	dev=(HR@5:0.0508,NDCG@5:0.0325) [3.0 s]
+INFO:root:Epoch 13    loss=0.0545 [7.8 s]	dev=(HR@5:0.0500,NDCG@5:0.0330) [2.8 s]
+INFO:root:Epoch 14    loss=0.0500 [7.4 s]	dev=(HR@5:0.0509,NDCG@5:0.0323) [2.8 s]
+INFO:root:Epoch 15    loss=0.0467 [7.9 s]	dev=(HR@5:0.0529,NDCG@5:0.0341) [2.8 s] *
+INFO:root:Epoch 16    loss=0.0431 [7.4 s]	dev=(HR@5:0.0505,NDCG@5:0.0323) [2.9 s]
+INFO:root:Epoch 17    loss=0.0392 [6.5 s]	dev=(HR@5:0.0506,NDCG@5:0.0328) [2.9 s]
+INFO:root:Epoch 18    loss=0.0368 [8.2 s]	dev=(HR@5:0.0527,NDCG@5:0.0340) [2.6 s]
+INFO:root:Epoch 19    loss=0.0345 [7.5 s]	dev=(HR@5:0.0514,NDCG@5:0.0333) [2.8 s]
+INFO:root:Epoch 20    loss=0.0326 [7.0 s]	dev=(HR@5:0.0504,NDCG@5:0.0329) [2.8 s]
+INFO:root:Epoch 21    loss=0.0308 [7.6 s]	dev=(HR@5:0.0528,NDCG@5:0.0338) [2.9 s]
+INFO:root:Epoch 22    loss=0.0291 [7.3 s]	dev=(HR@5:0.0508,NDCG@5:0.0338) [3.0 s]
+INFO:root:Epoch 23    loss=0.0289 [8.1 s]	dev=(HR@5:0.0533,NDCG@5:0.0350) [3.0 s] *
+INFO:root:Epoch 24    loss=0.0273 [7.3 s]	dev=(HR@5:0.0513,NDCG@5:0.0340) [2.9 s]
+INFO:root:Epoch 25    loss=0.0268 [7.9 s]	dev=(HR@5:0.0499,NDCG@5:0.0324) [2.7 s]
+INFO:root:Epoch 26    loss=0.0260 [7.3 s]	dev=(HR@5:0.0499,NDCG@5:0.0332) [2.4 s]
+INFO:root:Epoch 27    loss=0.0253 [8.1 s]	dev=(HR@5:0.0505,NDCG@5:0.0331) [2.6 s]
+INFO:root:Epoch 28    loss=0.0257 [8.3 s]	dev=(HR@5:0.0508,NDCG@5:0.0334) [2.9 s]
+INFO:root:Epoch 29    loss=0.0241 [7.6 s]	dev=(HR@5:0.0499,NDCG@5:0.0326) [2.9 s]
+INFO:root:Epoch 30    loss=0.0236 [7.2 s]	dev=(HR@5:0.0505,NDCG@5:0.0319) [2.7 s]
+INFO:root:Epoch 31    loss=0.0222 [7.8 s]	dev=(HR@5:0.0479,NDCG@5:0.0313) [3.1 s]
+INFO:root:Epoch 32    loss=0.0226 [8.5 s]	dev=(HR@5:0.0500,NDCG@5:0.0329) [2.7 s]
+INFO:root:Early stop at 32 based on dev result.
+INFO:root:
+Best Iter(dev)=   23	 dev=(HR@5:0.0533,NDCG@5:0.0350) [328.9 s] 
+INFO:root:Load model from ../model/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=1.pt
+INFO:root:
+Dev  After Training: (HR@5:0.0533,NDCG@5:0.0350,HR@10:0.0804,NDCG@10:0.0437,HR@20:0.1186,NDCG@20:0.0533,HR@50:0.1919,NDCG@50:0.0678)
+INFO:root:
+Test After Training: (HR@5:0.0420,NDCG@5:0.0273,HR@10:0.0630,NDCG@10:0.0340,HR@20:0.0957,NDCG@20:0.0423,HR@50:0.1575,NDCG@50:0.0544)
+INFO:root:Saving top-100 recommendation results to: ../log/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0/rec-SASRec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/SASRec/SASRec__Grocery_and_Gourmet_Food__0__lr=0/rec-SASRec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-07 20:53:27 ---------------------------------------------

@@ -1,0 +1,168 @@
+INFO:root:Namespace(model_name='GRU4Rec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-11-26 17:06:15 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 256                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ hidden_size        | 64                  
+ history_max        | 20                  
+ l2                 | 1e-06               
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/Grocery_and_Gourmet_Food/SeqReader.pkl
+INFO:root:#params: 586816
+INFO:root:GRU4Rec(
+  (i_embeddings): Embedding(8714, 64)
+  (rnn): GRU(64, 64, batch_first=True)
+  (out): Linear(in_features=64, out_features=64, bias=True)
+)
+INFO:root:Test Before Training: (HR@5:0.0452,NDCG@5:0.0249,HR@10:0.0966,NDCG@10:0.0412,HR@20:0.1971,NDCG@20:0.0664,HR@50:0.5007,NDCG@50:0.1252)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.5040 [5.4 s]	dev=(HR@5:0.2403,NDCG@5:0.1553) [0.4 s] *
+INFO:root:Epoch 2     loss=0.4329 [5.5 s]	dev=(HR@5:0.2439,NDCG@5:0.1572) [0.4 s] *
+INFO:root:Epoch 3     loss=0.4199 [5.3 s]	dev=(HR@5:0.2736,NDCG@5:0.1818) [0.5 s] *
+INFO:root:Epoch 4     loss=0.4002 [4.9 s]	dev=(HR@5:0.3113,NDCG@5:0.2072) [0.4 s] *
+INFO:root:Epoch 5     loss=0.3803 [5.3 s]	dev=(HR@5:0.3173,NDCG@5:0.2128) [0.4 s] *
+INFO:root:Epoch 6     loss=0.3670 [5.0 s]	dev=(HR@5:0.3324,NDCG@5:0.2219) [0.4 s] *
+INFO:root:Epoch 7     loss=0.3562 [4.9 s]	dev=(HR@5:0.3394,NDCG@5:0.2288) [0.5 s] *
+INFO:root:Epoch 8     loss=0.3433 [5.1 s]	dev=(HR@5:0.3451,NDCG@5:0.2357) [0.5 s] *
+INFO:root:Epoch 9     loss=0.3317 [5.7 s]	dev=(HR@5:0.3513,NDCG@5:0.2393) [0.4 s] *
+INFO:root:Epoch 10    loss=0.3227 [4.1 s]	dev=(HR@5:0.3571,NDCG@5:0.2454) [0.4 s] *
+INFO:root:Epoch 11    loss=0.3142 [3.7 s]	dev=(HR@5:0.3635,NDCG@5:0.2488) [0.5 s] *
+INFO:root:Epoch 12    loss=0.3054 [4.5 s]	dev=(HR@5:0.3697,NDCG@5:0.2535) [0.5 s] *
+INFO:root:Epoch 13    loss=0.2984 [5.4 s]	dev=(HR@5:0.3755,NDCG@5:0.2578) [0.5 s] *
+INFO:root:Epoch 14    loss=0.2902 [5.7 s]	dev=(HR@5:0.3789,NDCG@5:0.2613) [0.4 s] *
+INFO:root:Epoch 15    loss=0.2839 [5.9 s]	dev=(HR@5:0.3742,NDCG@5:0.2596) [0.5 s]
+INFO:root:Epoch 16    loss=0.2756 [3.8 s]	dev=(HR@5:0.3755,NDCG@5:0.2591) [0.5 s]
+INFO:root:Epoch 17    loss=0.2652 [5.8 s]	dev=(HR@5:0.3777,NDCG@5:0.2647) [0.5 s] *
+INFO:root:Epoch 18    loss=0.2572 [5.0 s]	dev=(HR@5:0.3774,NDCG@5:0.2616) [0.5 s]
+INFO:root:Epoch 19    loss=0.2484 [5.8 s]	dev=(HR@5:0.3767,NDCG@5:0.2630) [0.5 s]
+INFO:root:Epoch 20    loss=0.2431 [5.2 s]	dev=(HR@5:0.3734,NDCG@5:0.2615) [0.5 s]
+INFO:root:Epoch 21    loss=0.2321 [5.9 s]	dev=(HR@5:0.3769,NDCG@5:0.2661) [0.5 s] *
+INFO:root:Epoch 22    loss=0.2298 [5.9 s]	dev=(HR@5:0.3732,NDCG@5:0.2628) [0.5 s]
+INFO:root:Epoch 23    loss=0.2254 [5.3 s]	dev=(HR@5:0.3791,NDCG@5:0.2672) [0.4 s] *
+INFO:root:Epoch 24    loss=0.2218 [5.0 s]	dev=(HR@5:0.3731,NDCG@5:0.2625) [0.6 s]
+INFO:root:Epoch 25    loss=0.2135 [5.9 s]	dev=(HR@5:0.3695,NDCG@5:0.2619) [0.5 s]
+INFO:root:Epoch 26    loss=0.2098 [5.0 s]	dev=(HR@5:0.3736,NDCG@5:0.2636) [0.5 s]
+INFO:root:Epoch 27    loss=0.2047 [4.9 s]	dev=(HR@5:0.3720,NDCG@5:0.2629) [0.5 s]
+INFO:root:Epoch 28    loss=0.2023 [5.3 s]	dev=(HR@5:0.3744,NDCG@5:0.2657) [0.5 s]
+INFO:root:Epoch 29    loss=0.1961 [5.0 s]	dev=(HR@5:0.3769,NDCG@5:0.2651) [0.5 s]
+INFO:root:Epoch 30    loss=0.1900 [4.3 s]	dev=(HR@5:0.3702,NDCG@5:0.2609) [0.4 s]
+INFO:root:Epoch 31    loss=0.1876 [4.5 s]	dev=(HR@5:0.3755,NDCG@5:0.2665) [0.4 s]
+INFO:root:Epoch 32    loss=0.1839 [5.4 s]	dev=(HR@5:0.3711,NDCG@5:0.2642) [0.4 s]
+INFO:root:Early stop at 32 based on dev result.
+INFO:root:
+Best Iter(dev)=   23	 dev=(HR@5:0.3791,NDCG@5:0.2672) [179.4 s] 
+INFO:root:Load model from ../model/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0.0005__l2=1e-06__emb_size=64__hidden_size=64.pt
+INFO:root:
+Dev  After Training: (HR@5:0.3791,NDCG@5:0.2672,HR@10:0.4889,NDCG@10:0.3028,HR@20:0.6086,NDCG@20:0.3330,HR@50:0.8117,NDCG@50:0.3731)
+INFO:root:
+Test After Training: (HR@5:0.3316,NDCG@5:0.2273,HR@10:0.4395,NDCG@10:0.2623,HR@20:0.5618,NDCG@20:0.2932,HR@50:0.7809,NDCG@50:0.3365)
+INFO:root:Saving top-100 recommendation results to: ../log/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0/rec-GRU4Rec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0/rec-GRU4Rec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-11-26 17:09:23 ---------------------------------------------
+INFO:root:Namespace(model_name='GRU4Rec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 20:53:30 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 256                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ hidden_size        | 64                  
+ history_max        | 50                  
+ l2                 | 1e-06               
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/Grocery_and_Gourmet_Food/SeqReader.pkl
+INFO:root:#params: 586816
+INFO:root:GRU4Rec(
+  (i_embeddings): Embedding(8714, 64)
+  (rnn): GRU(64, 64, batch_first=True)
+  (out): Linear(in_features=64, out_features=64, bias=True)
+)
+INFO:root:Test Before Training: (HR@5:0.0002,NDCG@5:0.0001,HR@10:0.0003,NDCG@10:0.0002,HR@20:0.0009,NDCG@20:0.0003,HR@50:0.0035,NDCG@50:0.0008)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.5040 [7.3 s]	dev=(HR@5:0.0043,NDCG@5:0.0023) [2.4 s] *
+INFO:root:Epoch 2     loss=0.4328 [6.7 s]	dev=(HR@5:0.0072,NDCG@5:0.0043) [2.1 s] *
+INFO:root:Epoch 3     loss=0.4200 [6.7 s]	dev=(HR@5:0.0101,NDCG@5:0.0063) [2.4 s] *
+INFO:root:Epoch 4     loss=0.4007 [6.8 s]	dev=(HR@5:0.0136,NDCG@5:0.0080) [2.4 s] *
+INFO:root:Epoch 5     loss=0.3807 [6.5 s]	dev=(HR@5:0.0114,NDCG@5:0.0076) [2.4 s]
+INFO:root:Epoch 6     loss=0.3675 [7.2 s]	dev=(HR@5:0.0160,NDCG@5:0.0097) [2.4 s] *
+INFO:root:Epoch 7     loss=0.3567 [6.5 s]	dev=(HR@5:0.0168,NDCG@5:0.0096) [2.1 s]
+INFO:root:Epoch 8     loss=0.3438 [8.1 s]	dev=(HR@5:0.0148,NDCG@5:0.0091) [2.5 s]
+INFO:root:Epoch 9     loss=0.3320 [6.0 s]	dev=(HR@5:0.0144,NDCG@5:0.0084) [2.0 s]
+INFO:root:Epoch 10    loss=0.3228 [6.6 s]	dev=(HR@5:0.0152,NDCG@5:0.0097) [2.4 s]
+INFO:root:Epoch 11    loss=0.3145 [7.1 s]	dev=(HR@5:0.0157,NDCG@5:0.0095) [2.5 s]
+INFO:root:Epoch 12    loss=0.3056 [8.0 s]	dev=(HR@5:0.0168,NDCG@5:0.0101) [2.4 s] *
+INFO:root:Epoch 13    loss=0.2986 [5.7 s]	dev=(HR@5:0.0169,NDCG@5:0.0101) [2.5 s]
+INFO:root:Epoch 14    loss=0.2905 [6.9 s]	dev=(HR@5:0.0176,NDCG@5:0.0102) [2.5 s] *
+INFO:root:Epoch 15    loss=0.2843 [7.6 s]	dev=(HR@5:0.0173,NDCG@5:0.0101) [2.5 s]
+INFO:root:Epoch 16    loss=0.2759 [6.2 s]	dev=(HR@5:0.0188,NDCG@5:0.0112) [2.4 s] *
+INFO:root:Epoch 17    loss=0.2656 [7.6 s]	dev=(HR@5:0.0185,NDCG@5:0.0111) [2.7 s]
+INFO:root:Epoch 18    loss=0.2575 [6.9 s]	dev=(HR@5:0.0175,NDCG@5:0.0107) [2.4 s]
+INFO:root:Epoch 19    loss=0.2488 [6.9 s]	dev=(HR@5:0.0180,NDCG@5:0.0111) [2.4 s]
+INFO:root:Epoch 20    loss=0.2436 [6.7 s]	dev=(HR@5:0.0187,NDCG@5:0.0107) [2.3 s]
+INFO:root:Epoch 21    loss=0.2326 [6.8 s]	dev=(HR@5:0.0215,NDCG@5:0.0125) [2.3 s] *
+INFO:root:Epoch 22    loss=0.2301 [6.6 s]	dev=(HR@5:0.0195,NDCG@5:0.0118) [2.4 s]
+INFO:root:Epoch 23    loss=0.2258 [7.4 s]	dev=(HR@5:0.0225,NDCG@5:0.0137) [2.4 s] *
+INFO:root:Epoch 24    loss=0.2221 [7.9 s]	dev=(HR@5:0.0193,NDCG@5:0.0124) [2.4 s]
+INFO:root:Epoch 25    loss=0.2138 [8.2 s]	dev=(HR@5:0.0208,NDCG@5:0.0128) [2.5 s]
+INFO:root:Epoch 26    loss=0.2099 [7.6 s]	dev=(HR@5:0.0195,NDCG@5:0.0115) [2.4 s]
+INFO:root:Epoch 27    loss=0.2047 [6.7 s]	dev=(HR@5:0.0185,NDCG@5:0.0116) [2.5 s]
+INFO:root:Epoch 28    loss=0.2022 [7.8 s]	dev=(HR@5:0.0202,NDCG@5:0.0123) [2.5 s]
+INFO:root:Epoch 29    loss=0.1960 [6.8 s]	dev=(HR@5:0.0206,NDCG@5:0.0132) [2.5 s]
+INFO:root:Epoch 30    loss=0.1895 [7.0 s]	dev=(HR@5:0.0218,NDCG@5:0.0131) [2.5 s]
+INFO:root:Epoch 31    loss=0.1872 [7.3 s]	dev=(HR@5:0.0216,NDCG@5:0.0131) [2.4 s]
+INFO:root:Epoch 32    loss=0.1833 [7.3 s]	dev=(HR@5:0.0196,NDCG@5:0.0115) [2.5 s]
+INFO:root:Early stop at 32 based on dev result.
+INFO:root:
+Best Iter(dev)=   23	 dev=(HR@5:0.0225,NDCG@5:0.0137) [302.7 s] 
+INFO:root:Load model from ../model/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0.0005__l2=1e-06__emb_size=64__hidden_size=64.pt
+INFO:root:
+Dev  After Training: (HR@5:0.0225,NDCG@5:0.0137,HR@10:0.0384,NDCG@10:0.0188,HR@20:0.0633,NDCG@20:0.0251,HR@50:0.1161,NDCG@50:0.0355)
+INFO:root:
+Test After Training: (HR@5:0.0185,NDCG@5:0.0112,HR@10:0.0311,NDCG@10:0.0152,HR@20:0.0496,NDCG@20:0.0198,HR@50:0.0874,NDCG@50:0.0272)
+INFO:root:Saving top-100 recommendation results to: ../log/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0/rec-GRU4Rec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/GRU4Rec/GRU4Rec__Grocery_and_Gourmet_Food__0__lr=0/rec-GRU4Rec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-07 21:00:38 ---------------------------------------------

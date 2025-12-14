@@ -1,0 +1,1027 @@
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-01 11:03:48 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 301760
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-01 11:06:14 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 301760
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(21, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0463,NDCG@5:0.0261,HR@10:0.0929,NDCG@10:0.0411,HR@20:0.1949,NDCG@20:0.0665,HR@50:0.5003,NDCG@50:0.1263)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.2969 [30.0 s]	dev=(HR@5:0.4251,NDCG@5:0.2926) [0.3 s] *
+INFO:root:Epoch 2     loss=0.1821 [30.2 s]	dev=(HR@5:0.4621,NDCG@5:0.3248) [0.3 s] *
+INFO:root:Epoch 3     loss=0.1470 [30.6 s]	dev=(HR@5:0.4902,NDCG@5:0.3445) [0.4 s] *
+INFO:root:Epoch 4     loss=0.1306 [30.5 s]	dev=(HR@5:0.5101,NDCG@5:0.3591) [0.3 s] *
+INFO:root:Epoch 5     loss=0.1213 [30.4 s]	dev=(HR@5:0.5070,NDCG@5:0.3622) [0.3 s] *
+INFO:root:Epoch 6     loss=0.1144 [29.9 s]	dev=(HR@5:0.4984,NDCG@5:0.3560) [0.3 s]
+INFO:root:Epoch 7     loss=0.1090 [30.0 s]	dev=(HR@5:0.5059,NDCG@5:0.3566) [0.3 s]
+INFO:root:Epoch 8     loss=0.1040 [29.1 s]	dev=(HR@5:0.5160,NDCG@5:0.3676) [0.3 s] *
+INFO:root:Epoch 9     loss=0.1008 [29.3 s]	dev=(HR@5:0.4969,NDCG@5:0.3583) [0.3 s]
+INFO:root:Epoch 10    loss=0.0988 [29.3 s]	dev=(HR@5:0.5031,NDCG@5:0.3605) [0.3 s]
+INFO:root:Epoch 11    loss=0.0950 [29.7 s]	dev=(HR@5:0.5125,NDCG@5:0.3662) [0.3 s]
+INFO:root:Epoch 12    loss=0.0946 [29.4 s]	dev=(HR@5:0.5055,NDCG@5:0.3623) [0.2 s]
+INFO:root:Epoch 13    loss=0.0909 [28.8 s]	dev=(HR@5:0.5215,NDCG@5:0.3747) [0.3 s] *
+INFO:root:Epoch 14    loss=0.0899 [31.4 s]	dev=(HR@5:0.5215,NDCG@5:0.3707) [0.3 s]
+INFO:root:Epoch 15    loss=0.0870 [27.6 s]	dev=(HR@5:0.5160,NDCG@5:0.3709) [0.2 s]
+INFO:root:Epoch 16    loss=0.0865 [29.7 s]	dev=(HR@5:0.5125,NDCG@5:0.3660) [0.3 s]
+INFO:root:Epoch 17    loss=0.0845 [28.9 s]	dev=(HR@5:0.5203,NDCG@5:0.3684) [0.3 s]
+INFO:root:Epoch 18    loss=0.0840 [29.5 s]	dev=(HR@5:0.5246,NDCG@5:0.3800) [0.2 s] *
+INFO:root:Epoch 19    loss=0.0825 [29.9 s]	dev=(HR@5:0.5152,NDCG@5:0.3729) [0.2 s]
+INFO:root:Epoch 20    loss=0.0818 [29.6 s]	dev=(HR@5:0.5144,NDCG@5:0.3715) [0.3 s]
+INFO:root:Epoch 21    loss=0.0808 [29.6 s]	dev=(HR@5:0.5133,NDCG@5:0.3685) [0.3 s]
+INFO:root:Epoch 22    loss=0.0799 [30.1 s]	dev=(HR@5:0.5117,NDCG@5:0.3710) [0.3 s]
+INFO:root:Epoch 23    loss=0.0791 [29.9 s]	dev=(HR@5:0.5098,NDCG@5:0.3695) [0.3 s]
+INFO:root:Epoch 24    loss=0.0784 [29.4 s]	dev=(HR@5:0.5059,NDCG@5:0.3655) [0.3 s]
+INFO:root:Epoch 25    loss=0.0767 [29.4 s]	dev=(HR@5:0.5055,NDCG@5:0.3644) [0.3 s]
+INFO:root:Epoch 26    loss=0.0763 [28.8 s]	dev=(HR@5:0.5133,NDCG@5:0.3669) [0.3 s]
+INFO:root:Epoch 27    loss=0.0760 [29.9 s]	dev=(HR@5:0.5062,NDCG@5:0.3697) [0.3 s]
+INFO:root:Early stop at 27 based on dev result.
+INFO:root:
+Best Iter(dev)=   18	 dev=(HR@5:0.5246,NDCG@5:0.3800) [808.8 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=4__alpha=0.3__c=9.pt
+INFO:root:
+Dev  After Training: (HR@5:0.5246,NDCG@5:0.3800,HR@10:0.6632,NDCG@10:0.4249,HR@20:0.8103,NDCG@20:0.4621,HR@50:0.9551,NDCG@50:0.4912)
+INFO:root:
+Test After Training: (HR@5:0.5233,NDCG@5:0.3848,HR@10:0.6667,NDCG@10:0.4315,HR@20:0.8107,NDCG@20:0.4680,HR@50:0.9565,NDCG@50:0.4973)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-01 11:19:47 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-01 11:22:02 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0414,NDCG@5:0.0236,HR@10:0.0912,NDCG@10:0.0394,HR@20:0.1924,NDCG@20:0.0648,HR@50:0.4969,NDCG@50:0.1241)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.2934 [30.1 s]	dev=(HR@5:0.4098,NDCG@5:0.2790) [0.3 s] *
+INFO:root:Epoch 2     loss=0.1770 [29.7 s]	dev=(HR@5:0.4664,NDCG@5:0.3242) [0.3 s] *
+INFO:root:Epoch 3     loss=0.1429 [29.0 s]	dev=(HR@5:0.4918,NDCG@5:0.3470) [0.3 s] *
+INFO:root:Epoch 4     loss=0.1282 [29.3 s]	dev=(HR@5:0.5101,NDCG@5:0.3599) [0.2 s] *
+INFO:root:Epoch 5     loss=0.1193 [28.7 s]	dev=(HR@5:0.5246,NDCG@5:0.3703) [0.2 s] *
+INFO:root:Epoch 6     loss=0.1121 [28.1 s]	dev=(HR@5:0.5094,NDCG@5:0.3650) [0.3 s]
+INFO:root:Epoch 7     loss=0.1068 [28.7 s]	dev=(HR@5:0.5172,NDCG@5:0.3681) [0.3 s]
+INFO:root:Epoch 8     loss=0.1023 [29.0 s]	dev=(HR@5:0.5304,NDCG@5:0.3805) [0.2 s] *
+INFO:root:Epoch 9     loss=0.0989 [28.7 s]	dev=(HR@5:0.5215,NDCG@5:0.3735) [0.3 s]
+INFO:root:Epoch 10    loss=0.0960 [29.8 s]	dev=(HR@5:0.5265,NDCG@5:0.3760) [0.2 s]
+INFO:root:Epoch 11    loss=0.0929 [29.0 s]	dev=(HR@5:0.5226,NDCG@5:0.3733) [0.2 s]
+INFO:root:Epoch 12    loss=0.0919 [29.1 s]	dev=(HR@5:0.5207,NDCG@5:0.3708) [0.3 s]
+INFO:root:Epoch 13    loss=0.0888 [28.8 s]	dev=(HR@5:0.5254,NDCG@5:0.3762) [0.5 s]
+INFO:root:Epoch 14    loss=0.0874 [28.6 s]	dev=(HR@5:0.5191,NDCG@5:0.3734) [0.2 s]
+INFO:root:Epoch 15    loss=0.0843 [29.8 s]	dev=(HR@5:0.5265,NDCG@5:0.3812) [0.2 s] *
+INFO:root:Epoch 16    loss=0.0840 [28.9 s]	dev=(HR@5:0.5215,NDCG@5:0.3767) [0.2 s]
+INFO:root:Epoch 17    loss=0.0820 [29.3 s]	dev=(HR@5:0.5359,NDCG@5:0.3835) [0.3 s] *
+INFO:root:Epoch 18    loss=0.0813 [28.9 s]	dev=(HR@5:0.5144,NDCG@5:0.3696) [0.3 s]
+INFO:root:Epoch 19    loss=0.0801 [29.9 s]	dev=(HR@5:0.5215,NDCG@5:0.3796) [0.3 s]
+INFO:root:Epoch 20    loss=0.0788 [28.9 s]	dev=(HR@5:0.5277,NDCG@5:0.3844) [0.3 s] *
+INFO:root:Epoch 21    loss=0.0785 [29.0 s]	dev=(HR@5:0.5254,NDCG@5:0.3814) [0.2 s]
+INFO:root:Epoch 22    loss=0.0776 [29.2 s]	dev=(HR@5:0.5137,NDCG@5:0.3728) [0.3 s]
+INFO:root:Epoch 23    loss=0.0767 [29.3 s]	dev=(HR@5:0.5164,NDCG@5:0.3725) [0.4 s]
+INFO:root:Epoch 24    loss=0.0758 [29.1 s]	dev=(HR@5:0.5234,NDCG@5:0.3793) [0.3 s]
+INFO:root:Epoch 25    loss=0.0745 [28.2 s]	dev=(HR@5:0.5343,NDCG@5:0.3813) [0.2 s]
+INFO:root:Epoch 26    loss=0.0743 [29.7 s]	dev=(HR@5:0.5258,NDCG@5:0.3800) [0.3 s]
+INFO:root:Epoch 27    loss=0.0739 [28.5 s]	dev=(HR@5:0.5238,NDCG@5:0.3783) [0.3 s]
+INFO:root:Epoch 28    loss=0.0729 [28.8 s]	dev=(HR@5:0.5262,NDCG@5:0.3860) [0.2 s] *
+INFO:root:Epoch 29    loss=0.0722 [29.1 s]	dev=(HR@5:0.5269,NDCG@5:0.3824) [0.3 s]
+INFO:root:Epoch 30    loss=0.0717 [29.4 s]	dev=(HR@5:0.5219,NDCG@5:0.3739) [0.3 s]
+INFO:root:Epoch 31    loss=0.0713 [28.7 s]	dev=(HR@5:0.5180,NDCG@5:0.3721) [0.3 s]
+INFO:root:Epoch 32    loss=0.0715 [29.2 s]	dev=(HR@5:0.5183,NDCG@5:0.3763) [0.2 s]
+INFO:root:Epoch 33    loss=0.0696 [28.9 s]	dev=(HR@5:0.5234,NDCG@5:0.3821) [0.2 s]
+INFO:root:Epoch 34    loss=0.0699 [29.7 s]	dev=(HR@5:0.5254,NDCG@5:0.3834) [0.3 s]
+INFO:root:Epoch 35    loss=0.0689 [29.1 s]	dev=(HR@5:0.5226,NDCG@5:0.3776) [0.3 s]
+INFO:root:Epoch 36    loss=0.0689 [28.5 s]	dev=(HR@5:0.5238,NDCG@5:0.3787) [0.2 s]
+INFO:root:Epoch 37    loss=0.0689 [28.8 s]	dev=(HR@5:0.5297,NDCG@5:0.3818) [0.3 s]
+INFO:root:Early stop at 37 based on dev result.
+INFO:root:
+Best Iter(dev)=   28	 dev=(HR@5:0.5262,NDCG@5:0.3860) [1085.5 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=4__alpha=0.3__c=9.pt
+INFO:root:
+Dev  After Training: (HR@5:0.5262,NDCG@5:0.3860,HR@10:0.6706,NDCG@10:0.4329,HR@20:0.8091,NDCG@20:0.4681,HR@50:0.9610,NDCG@50:0.4985)
+INFO:root:
+Test After Training: (HR@5:0.5414,NDCG@5:0.4000,HR@10:0.6795,NDCG@10:0.4449,HR@20:0.8173,NDCG@20:0.4796,HR@50:0.9586,NDCG@50:0.5081)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-01 11:40:10 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-06 21:57:23 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0008,NDCG@5:0.0005,HR@10:0.0018,NDCG@10:0.0008,HR@20:0.0048,NDCG@20:0.0016,HR@50:0.0118,NDCG@50:0.0029)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.2957 [52.1 s]	dev=(HR@5:0.0560,NDCG@5:0.0345) [0.8 s] *
+INFO:root:Epoch 2     loss=0.1770 [53.4 s]	dev=(HR@5:0.0792,NDCG@5:0.0509) [0.8 s] *
+INFO:root:Epoch 3     loss=0.1450 [50.5 s]	dev=(HR@5:0.0946,NDCG@5:0.0609) [0.8 s] *
+INFO:root:Epoch 4     loss=0.1287 [48.8 s]	dev=(HR@5:0.1079,NDCG@5:0.0682) [0.9 s] *
+INFO:root:Epoch 5     loss=0.1184 [48.6 s]	dev=(HR@5:0.1150,NDCG@5:0.0724) [0.8 s] *
+INFO:root:Epoch 6     loss=0.1128 [50.7 s]	dev=(HR@5:0.1198,NDCG@5:0.0776) [0.8 s] *
+INFO:root:Epoch 7     loss=0.1073 [50.5 s]	dev=(HR@5:0.1216,NDCG@5:0.0788) [0.8 s] *
+INFO:root:Epoch 8     loss=0.1019 [50.3 s]	dev=(HR@5:0.1296,NDCG@5:0.0830) [0.8 s] *
+INFO:root:Epoch 9     loss=0.0993 [51.0 s]	dev=(HR@5:0.1311,NDCG@5:0.0847) [0.8 s] *
+INFO:root:Epoch 10    loss=0.0961 [49.0 s]	dev=(HR@5:0.1337,NDCG@5:0.0856) [0.8 s] *
+INFO:root:Epoch 11    loss=0.0943 [51.2 s]	dev=(HR@5:0.1390,NDCG@5:0.0906) [0.8 s] *
+INFO:root:Epoch 12    loss=0.0922 [48.9 s]	dev=(HR@5:0.1478,NDCG@5:0.0955) [0.8 s] *
+INFO:root:Epoch 13    loss=0.0895 [50.1 s]	dev=(HR@5:0.1453,NDCG@5:0.0947) [0.8 s]
+INFO:root:Epoch 14    loss=0.0878 [51.6 s]	dev=(HR@5:0.1442,NDCG@5:0.0951) [0.8 s]
+INFO:root:Epoch 15    loss=0.0859 [50.0 s]	dev=(HR@5:0.1381,NDCG@5:0.0911) [0.8 s]
+INFO:root:Epoch 16    loss=0.0845 [51.9 s]	dev=(HR@5:0.1450,NDCG@5:0.0948) [0.8 s]
+INFO:root:Epoch 17    loss=0.0831 [48.3 s]	dev=(HR@5:0.1455,NDCG@5:0.0956) [0.8 s] *
+INFO:root:Epoch 18    loss=0.0822 [52.5 s]	dev=(HR@5:0.1359,NDCG@5:0.0889) [0.8 s]
+INFO:root:Epoch 19    loss=0.0811 [51.6 s]	dev=(HR@5:0.1422,NDCG@5:0.0925) [1.0 s]
+INFO:root:Epoch 20    loss=0.0792 [49.7 s]	dev=(HR@5:0.1535,NDCG@5:0.0980) [0.8 s] *
+INFO:root:Epoch 21    loss=0.0782 [50.4 s]	dev=(HR@5:0.1442,NDCG@5:0.0930) [0.8 s]
+INFO:root:Epoch 22    loss=0.0770 [47.8 s]	dev=(HR@5:0.1478,NDCG@5:0.0958) [0.8 s]
+INFO:root:Epoch 23    loss=0.0772 [47.1 s]	dev=(HR@5:0.1492,NDCG@5:0.0960) [0.8 s]
+INFO:root:Epoch 24    loss=0.0768 [52.0 s]	dev=(HR@5:0.1453,NDCG@5:0.0939) [0.8 s]
+INFO:root:Epoch 25    loss=0.0760 [48.0 s]	dev=(HR@5:0.1447,NDCG@5:0.0935) [0.8 s]
+INFO:root:Epoch 26    loss=0.0745 [49.3 s]	dev=(HR@5:0.1443,NDCG@5:0.0941) [0.8 s]
+INFO:root:Epoch 27    loss=0.0735 [50.2 s]	dev=(HR@5:0.1409,NDCG@5:0.0921) [0.8 s]
+INFO:root:Epoch 28    loss=0.0741 [49.7 s]	dev=(HR@5:0.1443,NDCG@5:0.0938) [0.9 s]
+INFO:root:Epoch 29    loss=0.0734 [51.8 s]	dev=(HR@5:0.1482,NDCG@5:0.0965) [0.8 s]
+INFO:root:Early stop at 29 based on dev result.
+INFO:root:
+Best Iter(dev)=   20	 dev=(HR@5:0.1535,NDCG@5:0.0980) [1480.4 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=4__alpha=0.3__c=9.pt
+INFO:root:
+Dev  After Training: (HR@5:0.1535,NDCG@5:0.0980,HR@10:0.2358,NDCG@10:0.1247,HR@20:0.3351,NDCG@20:0.1497,HR@50:0.5040,NDCG@50:0.1833)
+INFO:root:
+Test After Training: (HR@5:0.1407,NDCG@5:0.0894,HR@10:0.2169,NDCG@10:0.1139,HR@20:0.3207,NDCG@20:0.1402,HR@50:0.4793,NDCG@50:0.1715)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-06 22:22:25 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-06 22:58:36 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-06 22:58:56 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-06 23:05:36 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0000,NDCG@5:0.0000,HR@10:0.0000,NDCG@10:0.0000,HR@20:0.0000,NDCG@20:0.0000,HR@50:0.0058,NDCG@50:0.0011)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=6.4546 [50.3 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 2     loss=5.7495 [48.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 3     loss=5.5786 [46.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 4     loss=5.4845 [44.9 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 5     loss=5.4234 [49.3 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 6     loss=5.3781 [48.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Early stop manually
+INFO:root:
+--------------------------------------------- END: 2025-12-06 23:11:16 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 08:44:26 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0008,NDCG@5:0.0005,HR@10:0.0018,NDCG@10:0.0008,HR@20:0.0048,NDCG@20:0.0016,HR@50:0.0118,NDCG@50:0.0029)
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:
+--------------------------------------------- END: 2025-12-07 08:44:43 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 08:44:51 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0008,NDCG@5:0.0005,HR@10:0.0018,NDCG@10:0.0008,HR@20:0.0048,NDCG@20:0.0016,HR@50:0.0118,NDCG@50:0.0029)
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:
+--------------------------------------------- END: 2025-12-07 08:45:00 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 08:45:19 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0000,NDCG@5:0.0000,HR@10:0.0000,NDCG@10:0.0000,HR@20:0.0000,NDCG@20:0.0000,HR@50:0.0058,NDCG@50:0.0011)
+INFO:root:Optimizer: Adam
+INFO:root:Early stop manually
+INFO:root:
+--------------------------------------------- END: 2025-12-07 08:45:49 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 08:46:35 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 50                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | CE                  
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0000,NDCG@5:0.0000,HR@10:0.0000,NDCG@10:0.0000,HR@20:0.0000,NDCG@20:0.0000,HR@50:0.0058,NDCG@50:0.0011)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=6.4546 [45.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 2     loss=5.7495 [46.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 3     loss=5.5786 [47.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 4     loss=5.4845 [48.7 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 5     loss=5.4234 [48.0 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 6     loss=5.3781 [47.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 7     loss=5.3426 [46.9 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 8     loss=5.3122 [50.1 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 9     loss=5.2860 [47.3 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.7 s] *
+INFO:root:Epoch 10    loss=5.2640 [47.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 11    loss=5.2435 [48.7 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 12    loss=5.2252 [50.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 13    loss=5.2081 [50.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 14    loss=5.1925 [48.5 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 15    loss=5.1779 [50.9 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 16    loss=5.1651 [47.2 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 17    loss=5.1517 [49.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 18    loss=5.1399 [49.1 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 19    loss=5.1282 [49.2 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 20    loss=5.1177 [47.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 21    loss=5.1080 [47.0 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 22    loss=5.0978 [47.0 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 23    loss=5.0887 [48.7 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 24    loss=5.0800 [44.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 25    loss=5.0712 [45.7 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 26    loss=5.0635 [50.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 27    loss=5.0553 [44.7 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 28    loss=5.0477 [46.5 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 29    loss=5.0405 [49.9 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 30    loss=5.0343 [45.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 31    loss=5.0275 [50.1 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 32    loss=5.0208 [48.4 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 33    loss=5.0146 [50.2 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 34    loss=5.0074 [47.3 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 35    loss=5.0028 [47.9 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 36    loss=4.9963 [47.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 37    loss=4.9909 [47.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 38    loss=4.9865 [43.3 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Epoch 39    loss=4.9809 [43.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 40    loss=4.9751 [45.8 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 41    loss=4.9707 [49.0 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.8 s] *
+INFO:root:Epoch 42    loss=4.9655 [44.6 s]	dev=(HR@5:0.0000,NDCG@5:0.0000) [0.9 s] *
+INFO:root:Early stop manually
+INFO:root:
+--------------------------------------------- END: 2025-12-07 09:20:58 ---------------------------------------------
+INFO:root:Namespace(model_name='BSARec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2025-12-07 14:09:28 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ alpha              | 0.3                 
+ batch_size         | 256                 
+ c                  | 9                   
+ data_appendix      |                     
+ dataset            | MovieLens_1M/ML_1...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 50                  
+ l2                 | 1e-06               
+ loss               | BPR                 
+ lr                 | 0.0005              
+ main_metric        |                     
+ num_heads          | 4                   
+ num_layers         | 2                   
+ num_neg            | 1                   
+ num_workers        | 5                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 1                   
+ topk               | 5,10,20,50          
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/ML_1MTOPK/SeqReader.pkl
+INFO:root:#params: 303680
+INFO:root:BSARec(
+  (i_embeddings): Embedding(3126, 64)
+  (p_embeddings): Embedding(51, 64)
+  (transformer_block): ModuleList(
+    (0-1): 2 x BSARecBlock(
+      (layer): BSARecLayer(
+        (filter_layer): FrequencyLayer(
+          (out_dropout): Dropout(p=0, inplace=False)
+          (LayerNorm): LayerNorm()
+        )
+        (attention_layer): MY_MultiHeadAttention_Full(
+          (q_linear): Linear(in_features=64, out_features=64, bias=True)
+          (k_linear): Linear(in_features=64, out_features=64, bias=True)
+          (v_linear): Linear(in_features=64, out_features=64, bias=True)
+          (out_linear): Linear(in_features=64, out_features=64, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (layer_norm): LayerNorm((64,), eps=1e-12, elementwise_affine=True)
+        )
+      )
+      (feed_forward): PositionwiseFeedForward(
+        (w_1): Linear(in_features=64, out_features=256, bias=True)
+        (w_2): Linear(in_features=256, out_features=64, bias=True)
+        (dropout): Dropout(p=0, inplace=False)
+      )
+      (LayerNorm2): LayerNorm()
+      (dropout2): Dropout(p=0, inplace=False)
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@5:0.0008,NDCG@5:0.0005,HR@10:0.0018,NDCG@10:0.0008,HR@20:0.0048,NDCG@20:0.0016,HR@50:0.0118,NDCG@50:0.0029)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.2957 [50.1 s]	dev=(HR@5:0.0560,NDCG@5:0.0345) [0.9 s] *
+INFO:root:Epoch 2     loss=0.1770 [46.5 s]	dev=(HR@5:0.0792,NDCG@5:0.0509) [0.9 s] *
+INFO:root:Epoch 3     loss=0.1450 [53.7 s]	dev=(HR@5:0.0946,NDCG@5:0.0609) [0.9 s] *
+INFO:root:Epoch 4     loss=0.1287 [48.8 s]	dev=(HR@5:0.1079,NDCG@5:0.0682) [0.9 s] *
+INFO:root:Epoch 5     loss=0.1184 [51.2 s]	dev=(HR@5:0.1150,NDCG@5:0.0724) [0.9 s] *
+INFO:root:Epoch 6     loss=0.1128 [49.2 s]	dev=(HR@5:0.1198,NDCG@5:0.0776) [0.9 s] *
+INFO:root:Epoch 7     loss=0.1073 [46.5 s]	dev=(HR@5:0.1216,NDCG@5:0.0788) [0.7 s] *
+INFO:root:Epoch 8     loss=0.1019 [49.1 s]	dev=(HR@5:0.1296,NDCG@5:0.0830) [0.9 s] *
+INFO:root:Epoch 9     loss=0.0993 [51.9 s]	dev=(HR@5:0.1311,NDCG@5:0.0847) [1.0 s] *
+INFO:root:Epoch 10    loss=0.0961 [40.5 s]	dev=(HR@5:0.1337,NDCG@5:0.0856) [0.9 s] *
+INFO:root:Epoch 11    loss=0.0943 [50.8 s]	dev=(HR@5:0.1390,NDCG@5:0.0906) [0.9 s] *
+INFO:root:Epoch 12    loss=0.0922 [48.3 s]	dev=(HR@5:0.1478,NDCG@5:0.0955) [0.9 s] *
+INFO:root:Epoch 13    loss=0.0895 [48.2 s]	dev=(HR@5:0.1453,NDCG@5:0.0947) [0.9 s]
+INFO:root:Epoch 14    loss=0.0878 [41.9 s]	dev=(HR@5:0.1442,NDCG@5:0.0951) [0.9 s]
+INFO:root:Epoch 15    loss=0.0859 [50.0 s]	dev=(HR@5:0.1381,NDCG@5:0.0911) [0.9 s]
+INFO:root:Epoch 16    loss=0.0845 [49.7 s]	dev=(HR@5:0.1450,NDCG@5:0.0948) [0.9 s]
+INFO:root:Epoch 17    loss=0.0831 [50.7 s]	dev=(HR@5:0.1455,NDCG@5:0.0956) [1.0 s] *
+INFO:root:Epoch 18    loss=0.0822 [45.7 s]	dev=(HR@5:0.1359,NDCG@5:0.0889) [0.9 s]
+INFO:root:Epoch 19    loss=0.0811 [48.3 s]	dev=(HR@5:0.1422,NDCG@5:0.0925) [1.1 s]
+INFO:root:Epoch 20    loss=0.0792 [51.5 s]	dev=(HR@5:0.1535,NDCG@5:0.0980) [0.8 s] *
+INFO:root:Epoch 21    loss=0.0782 [47.9 s]	dev=(HR@5:0.1442,NDCG@5:0.0930) [0.9 s]
+INFO:root:Epoch 22    loss=0.0770 [50.7 s]	dev=(HR@5:0.1478,NDCG@5:0.0958) [0.9 s]
+INFO:root:Epoch 23    loss=0.0772 [51.0 s]	dev=(HR@5:0.1492,NDCG@5:0.0960) [0.7 s]
+INFO:root:Epoch 24    loss=0.0768 [51.7 s]	dev=(HR@5:0.1453,NDCG@5:0.0939) [0.8 s]
+INFO:root:Epoch 25    loss=0.0760 [47.6 s]	dev=(HR@5:0.1447,NDCG@5:0.0935) [0.8 s]
+INFO:root:Epoch 26    loss=0.0745 [47.5 s]	dev=(HR@5:0.1443,NDCG@5:0.0941) [0.8 s]
+INFO:root:Epoch 27    loss=0.0735 [47.6 s]	dev=(HR@5:0.1409,NDCG@5:0.0921) [0.9 s]
+INFO:root:Epoch 28    loss=0.0741 [49.0 s]	dev=(HR@5:0.1443,NDCG@5:0.0938) [0.9 s]
+INFO:root:Epoch 29    loss=0.0734 [43.3 s]	dev=(HR@5:0.1482,NDCG@5:0.0965) [0.8 s]
+INFO:root:Early stop at 29 based on dev result.
+INFO:root:
+Best Iter(dev)=   20	 dev=(HR@5:0.1535,NDCG@5:0.0980) [1434.2 s] 
+INFO:root:Load model from ../model/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0.0005__l2=1e-06__emb_size=64__num_layers=2__num_heads=4__alpha=0.3__c=9.pt
+INFO:root:
+Dev  After Training: (HR@5:0.1535,NDCG@5:0.0980,HR@10:0.2358,NDCG@10:0.1247,HR@20:0.3351,NDCG@20:0.1497,HR@50:0.5040,NDCG@50:0.1833)
+INFO:root:
+Test After Training: (HR@5:0.1407,NDCG@5:0.0894,HR@10:0.2169,NDCG@10:0.1139,HR@20:0.3207,NDCG@20:0.1402,HR@50:0.4793,NDCG@50:0.1715)
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/BSARec/BSARec__MovieLens_1M/ML_1MTOPK__0__lr=0/rec-BSARec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2025-12-07 14:33:44 ---------------------------------------------
